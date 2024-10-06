@@ -27,15 +27,8 @@ namespace StudyClasses
             get { return _student; }
             set { _student = value; }
         }
-
         //īpašību "SubmissionTime", kas ir datums un laiks.
-        private DateTime _submissionTime;
-
-        public DateTime SubmissionTime
-        {
-            get { return _submissionTime; }
-            set { _submissionTime = value; }
-        }
+        public DateTime SubmissionTime { get; set; } = DateTime.Now; // Should record the time of submission creation 
 
         //īpašību "Score", kas ir vesels skaitlis.
         private int _score;
@@ -48,7 +41,7 @@ namespace StudyClasses
 
         public override string? ToString()
         {
-            return Assignement.ToString() + " By: " + Student.ToString() + "on: " + SubmissionTime.ToString() + "\nScore: " + Score.ToString();
+            return Assignement.ToString() + "\n Submitted by: " + Student.FullName + ", " + Student.StudentIdNumber + "\n on: " + SubmissionTime.ToString() + "\nScore: " + Score.ToString();
         }
     }
 }

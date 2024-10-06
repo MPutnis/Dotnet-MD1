@@ -30,7 +30,7 @@ namespace StudyClasses
         //Pārdefinēt metodi ToString(), lai tā atgriež visu(arī mantoto) īpašību vērtības kā tekstu.
         public override string? ToString()
         {
-            return "Course: " + Name.ToString() + " Teacher: " + Teacher.ToString();
+            return "Course: " + Name.ToString() + " Teacher: " + Teacher.FullName;
         }
 
         
