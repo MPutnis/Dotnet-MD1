@@ -59,42 +59,13 @@ namespace StudyClasses
         // Create test data for all classes
         public bool CreateTestData()
         {
-            
+
             // Test data for Teacher
-            var teach1 = new Teacher();
-            teach1.Name = "Albert";
-            teach1.Surname = "Loop";
-            teach1.PersonGender = Gender.Male;
-            teach1.ContractDate = new DateOnly(2021, 10, 10);
-            dataHolder.AddTeacher(teach1);
-
-            var teach2 = new Teacher();
-            teach2.Name = "Linda";
-            teach2.Surname = "Palinda";
-            teach2.PersonGender = Gender.Female;
-            teach2.ContractDate = new DateOnly(2015, 08, 08);
-            dataHolder.AddTeacher(teach2);
-
-            var teach3 = new Teacher();
-            teach3.Name = "John";
-            teach3.Surname = "Doe";
-            teach3.PersonGender = Gender.Male;
-            teach3.ContractDate = new DateOnly(2019, 05, 06);
-            dataHolder.AddTeacher(teach3);
-
-            var teach4 = new Teacher();
-            teach4.Name = "Jane";
-            teach4.Surname = "Done";
-            teach4.PersonGender = Gender.Other;
-            teach4.ContractDate = new DateOnly(2023, 03, 04);
-            dataHolder.AddTeacher(teach4);
-
-            var teach5 = new Teacher();
-            teach5.Name = "Hanter";
-            teach5.Surname = "Banter";
-            teach5.PersonGender = Gender.Male;
-            teach5.ContractDate = new DateOnly(2020, 02, 01);
-            dataHolder.AddTeacher(teach5);
+            dataHolder.AddTeacher(new Teacher("Albert", "Loop", Gender.Male, new DateOnly(2021, 10, 10)));
+            dataHolder.AddTeacher(new Teacher("Linda", "Palinda", Gender.Female, new DateOnly(2015, 08, 08)));
+            dataHolder.AddTeacher(new Teacher("John", "Doe", Gender.Male, new DateOnly(2019, 05, 06)));
+            dataHolder.AddTeacher(new Teacher("Jane", "Done", Gender.Other, new DateOnly(2023, 03, 04)));
+            dataHolder.AddTeacher(new Teacher("Hanter", "Banter", Gender.Male, new DateOnly(2020, 02, 01)));
 
             // Test data for Student
             dataHolder.AddStudent(new Student("Jenny", "Doe", Gender.Female, "jd241001"));
@@ -106,28 +77,29 @@ namespace StudyClasses
             // Test data for Course
             var course1 = new Course();
             course1.Name = "Math";
-            course1.Teacher = teach1;
+            course1.Teacher = dataHolder.Teachers[0];
             dataHolder.AddCourse(course1);
 
             var course2 = new Course();
             course2.Name = "Physics";
-            course2.Teacher = teach2;
+            course2.Teacher = dataHolder.Teachers[1];
             dataHolder.AddCourse(course2);
 
             var course3 = new Course();
             course3.Name = "Chemistry";
-            course3.Teacher = teach3;
+            course3.Teacher = dataHolder.Teachers[2];
             dataHolder.AddCourse(course3);
 
             var course4 = new Course();
             course4.Name = "Biology";
-            course4.Teacher = teach4;
+            course4.Teacher = dataHolder.Teachers[3];
             dataHolder.AddCourse(course4);
 
             var course5 = new Course();
             course5.Name = "History";
-            course5.Teacher = teach5;
+            course5.Teacher = dataHolder.Teachers[4];
             dataHolder.AddCourse(course5);
+
             // Test data for Assignement
             var assign1 = new Assignement();
             assign1.Description = "First Math homework";

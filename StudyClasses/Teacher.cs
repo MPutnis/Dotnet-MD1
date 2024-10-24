@@ -31,6 +31,17 @@ namespace StudyClasses
             set { ContractDate = DateOnly.Parse(value); }
         }
 
+        // Teacher constructors, full attributes and empty with default values
+        public Teacher( string name, string surname, Gender gender,DateOnly contractDate ):
+            base( name, surname, gender )
+        {
+            ContractDate = contractDate;
+        }
+
+        public Teacher () : base()
+        {
+            ContractDate = new DateOnly(1900, 01, 01);
+        }
         //    Pārdefinēt metodi ToString(), lai tā atgriež visu (arī mantoto) īpašību vērtības kā tekstu.
         public override string? ToString()
         {

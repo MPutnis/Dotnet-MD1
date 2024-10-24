@@ -16,6 +16,8 @@
     vērtības kā tekstu.
  */
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace StudyClasses
 {
     public abstract class Person
@@ -46,7 +48,24 @@ namespace StudyClasses
                 }
             }
         }
+        // Constructors with and without parameters
+        /*
+             Source for constructor inheritance:
+            https://www.geeksforgeeks.org/c-sharp-inheritance-in-constructors/
+         */
+        public Person( string name, string surname, Gender gender)
+        {
+            Name = name;
+            Surname = surname;
+            PersonGender = gender;
+        }
 
+        public Person()
+        {
+            Name = "Jane";
+            Surname = "Doe";
+            PersonGender = Gender.Female;
+        }
         public string FullName
         {
             get { return $"{_name} {_surname}"; }

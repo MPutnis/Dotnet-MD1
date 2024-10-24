@@ -23,19 +23,14 @@ namespace StudyClasses
             Klasei izveidot 2 konstruktorus, no kuriem viens kā parametru
             saņem visu īpašību vērtības, kas arī tiek uzstādītas jaunajam objektam.
         */
-        public Student(string name, string surname, Gender gender, string studentIdNumber)
+        public Student(string name, string surname, Gender gender, string studentIdNumber): 
+            base( name, surname, gender)
         {
-            Name = name;
-            Surname = surname;
-            PersonGender = gender;
             StudentIdNumber = studentIdNumber;
         }
 
-        public Student()
+        public Student(): base() 
         {
-            Name = "John";
-            Surname = "Doe";
-            PersonGender = Gender.Male;
             StudentIdNumber = "jd12345";
         }
 
