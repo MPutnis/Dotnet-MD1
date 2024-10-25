@@ -19,10 +19,10 @@ namespace StudyClasses
         string Print();
 
         //Metodi “save”, kas visu Kolekciju datus saglabātu failā.
-        bool Save(string path);
+        bool Save();
         
         //Metodi “load”, kas visu Kolekciju datus nolasītu no faila.
-        bool Load(string path);
+        bool Load();
 
         //Metodi “createTestData”, kas radītu testa datus.
         bool CreateTestData();

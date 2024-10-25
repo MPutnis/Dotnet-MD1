@@ -1,4 +1,6 @@
-﻿namespace MD2
+﻿using StudyClasses;
+
+namespace MD2
 {
     public partial class App : Application
     {
@@ -7,6 +9,9 @@
             InitializeComponent();
 
             MainPage = new AppShell();
+            DataManager = new StudyXMLDataManager();
         }
+
+        public static StudyXMLDataManager DataManager { get; set; }
     }
 }

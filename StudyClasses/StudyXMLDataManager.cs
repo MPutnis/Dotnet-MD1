@@ -28,10 +28,10 @@ namespace StudyClasses
             return result;
         }
         // Save data to file
-        public bool Save(string path)
+        public bool Save()
         {
             XmlSerializer serializer = new XmlSerializer(typeof(DataHolder));
-            using (TextWriter writer = new StreamWriter(path))
+            using (TextWriter writer = new StreamWriter("C:\\Temp\\data.txt"))
             {
                 serializer.Serialize(writer, dataHolder);
             }
@@ -39,12 +39,12 @@ namespace StudyClasses
             return true;
         }
         // Load data from file
-        public bool Load(string path)
+        public bool Load()
         {
-            if (File.Exists(path))
+            if (File.Exists("C:\\Temp\\data.txt"))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(DataHolder));
-                using (TextReader reader = new StreamReader(path))
+                using (TextReader reader = new StreamReader("C:\\Temp\\data.txt"))
                 {
                     var f = (DataHolder)serializer.Deserialize(reader);
                     if (f != null && f is DataHolder) { dataHolder = f; }

@@ -7,10 +7,10 @@ string path = "..\\data.txt";
 IDataManager dm = new StudyXMLDataManager();
 dm.CreateTestData();
 Console.WriteLine(dm.Print());
-dm.Save(path);
+dm.Save();
 dm.Reset();
 Console.WriteLine(dm.Print());
-dm.Load(path);
+dm.Load();
 Console.WriteLine(dm.Print());
 Console.ReadLine();
 
