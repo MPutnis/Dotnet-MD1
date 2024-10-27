@@ -3,13 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MD2.SubmissionPage"
              Title="SubmissionPage">
-    <VerticalStackLayout>
-        <!-- TODO: Make form for submission data -->
-        <!-- TODO: Button to create new submission -->
-        <!-- TODO: Button to edit existing submission -->
+    <VerticalStackLayout>       
         <Label 
-            Text="Welcome to .NET MAUI!"
+            x:Name="lblPageName"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <!-- TODO: Make form for submission data -->
+            <!-- submission data: Assignment, Student, SubmissionTime( should be automatic), Score-->
+        <HorizontalStackLayout >
+            <Label Text="Assignment:" />
+            <Picker x:Name="pAssignment" Title="Assignment" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout >
+            <Label Text="Student:" />
+            <Picker x:Name="pStudent" Title="Student" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout >
+            <Label Text="Score:" />
+            <Entry x:Name="txtScore" Placeholder="Score" />
+        </HorizontalStackLayout>
+        <!-- TODO: Button to create new submission -->
+        <Button x:Name="btnSaveNewSubmission"  Text="Save Submission" Clicked="btnSaveNewSubmission_Clicked" />
+        <!-- TODO: Button to edit existing submission -->
+        <Button x:Name="btnEditSubmission"  Text="Edit Submission" 
+                IsVisible="False" Clicked="btnEditSubmission_Clicked" />
     </VerticalStackLayout>
 </ContentPage>

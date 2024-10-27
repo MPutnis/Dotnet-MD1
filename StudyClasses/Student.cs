@@ -33,7 +33,10 @@ namespace StudyClasses
         {
             StudentIdNumber = "jd12345";
         }
-
+        public string NameID
+        {
+            get { return $"{FullName}, {StudentIdNumber}"; }
+        }
         // Pārdefinēt metodi ToString(), lai tā atgriež visu (arī mantoto) īpašību vērtības kā tekstu.
         public override string? ToString()
         {

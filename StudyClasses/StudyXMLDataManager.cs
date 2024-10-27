@@ -139,31 +139,31 @@ namespace StudyClasses
 
             // Test data for Submission
             var sub1 = new Submission();
-            sub1.Assignement = assign1;
+            sub1.Assignment = assign1;
             sub1.Student = dataHolder.Students[0];
             sub1.Score = 8;
             dataHolder.AddSubmission(sub1);
 
             var sub2 = new Submission();
-            sub2.Assignement = assign2;
+            sub2.Assignment = assign2;
             sub2.Student = dataHolder.Students[1];
             sub2.Score = 9;
             dataHolder.AddSubmission(sub2);
 
             var sub3 = new Submission();
-            sub3.Assignement = assign3;
+            sub3.Assignment = assign3;
             sub3.Student = dataHolder.Students[2];
             sub3.Score = 6;
             dataHolder.AddSubmission(sub3);
 
             var sub4 = new Submission();
-            sub4.Assignement = assign4;
+            sub4.Assignment = assign4;
             sub4.Student = dataHolder.Students[3];
             sub4.Score = 7;
             dataHolder.AddSubmission(sub4);
 
             var sub5 = new Submission();
-            sub5.Assignement = assign5;
+            sub5.Assignment = assign5;
             sub5.Student = dataHolder.Students[4];
             sub5.Score = 10;
             dataHolder.AddSubmission(sub5);

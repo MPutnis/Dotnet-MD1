@@ -13,7 +13,7 @@ namespace StudyClasses
         //īpašību "Assignement", datu tips Assignement.
         private Assignment _assignment;
 
-        public Assignment Assignement
+        public Assignment Assignment
         {
             get { return _assignment; }
             set { _assignment = value; }
@@ -41,7 +41,7 @@ namespace StudyClasses
 
         public override string? ToString()
         {
-            return Assignement.ToString() + "\n Submitted by: " + Student.FullName + ", " + Student.StudentIdNumber + "\n on: " + SubmissionTime.ToString() + "\nScore: " + Score.ToString();
+            return Assignment.ToString() + "\n Submitted by: " + Student.FullName + ", " + Student.StudentIdNumber + "\n on: " + SubmissionTime.ToString() + "\nScore: " + Score.ToString();
         }
     }
 }
