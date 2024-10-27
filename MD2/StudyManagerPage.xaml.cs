@@ -12,12 +12,12 @@ public partial class StudyManagerPage : ContentPage
 
         dataManager = App.DataManager;
     }
-    // TODO: Implement StudyXMLDataManager methods
+    // DONE: Implement StudyXMLDataManager methods
 
     // Print all data to StudyManagerPage
     private void btnPrint_Clicked(object sender, EventArgs e)
     {
-        lblText.Text = dataManager.Print();
+        ediText.Text = dataManager.Print();
     }
 
     // Load data from file
@@ -47,6 +47,6 @@ public partial class StudyManagerPage : ContentPage
     // Display data in StudyManagerPage
     private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
     {
-        lblText.Text = dataManager.Print();
+        ediText.Text = dataManager.Print();
     }
 }

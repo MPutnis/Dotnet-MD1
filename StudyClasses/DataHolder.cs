@@ -13,7 +13,7 @@ namespace StudyClasses
     [XmlInclude(typeof(Teacher))]
     [XmlInclude(typeof(Student))]
     [XmlInclude(typeof(Course))]
-    [XmlInclude(typeof(Assignement))]
+    [XmlInclude(typeof(Assignment))]
     [XmlInclude(typeof(Submission))]
     public class DataHolder
     {
@@ -21,7 +21,7 @@ namespace StudyClasses
         public List<Teacher> Teachers { get; set; }
         public List<Student> Students { get; set; }
         public List<Course> Courses { get; set; }
-        public List<Assignement> Assignements { get; set; }
+        public List<Assignment> Assignments { get; set; }
         public List<Submission> Submissions { get; set; }
 
         public DataHolder()
@@ -29,7 +29,7 @@ namespace StudyClasses
             Teachers = new List<Teacher>();
             Students = new List<Student>();
             Courses = new List<Course>();
-            Assignements = new List<Assignement>();
+            Assignments = new List<Assignment>();
             Submissions = new List<Submission>();
         }
         // Mehods to add data to the lists
@@ -48,9 +48,9 @@ namespace StudyClasses
             Courses.Add(course);
         }
 
-        public void AddAssignement(Assignement assignement)
+        public void AddAssignment(Assignment assignment)
         {
-            Assignements.Add(assignement);
+            Assignments.Add(assignment);
         }
 
         public void AddSubmission(Submission submission)

@@ -37,7 +37,7 @@ namespace StudyClasses
         // Pārdefinēt metodi ToString(), lai tā atgriež visu (arī mantoto) īpašību vērtības kā tekstu.
         public override string? ToString()
         {
-            return base.ToString() + " Student ID number: " + _studentIdNumber.ToString();
+            return $"{FullName}, {StudentIdNumber}, {PersonGender}";
         }
     }
 }

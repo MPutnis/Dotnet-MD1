@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace StudyClasses
     public class StudyXMLDataManager: IDataManager
     {
         // Holds lists of all classes
-        DataHolder dataHolder = new DataHolder();
+        public DataHolder dataHolder = new DataHolder();
         
         // Print all data to console
         public string Print()
@@ -23,7 +24,7 @@ namespace StudyClasses
             result += $"Teachers:\n{dataHolder.ListToString<Teacher>(dataHolder.Teachers)}\n";
             result += $"Students:\n{dataHolder.ListToString<Student>(dataHolder.Students)}\n";
             result += $"Courses:\n{dataHolder.ListToString<Course>(dataHolder.Courses)}\n";
-            result += $"Assignements:\n{dataHolder.ListToString<Assignement>(dataHolder.Assignements)}\n";
+            result += $"Assignements:\n{dataHolder.ListToString<Assignment>(dataHolder.Assignments)}\n";
             result += $"Submissions:\n{dataHolder.ListToString<Submission>(dataHolder.Submissions)}\n";
             return result;
         }
@@ -35,7 +36,7 @@ namespace StudyClasses
             {
                 serializer.Serialize(writer, dataHolder);
             }
-            Console.WriteLine("Data has been saved");
+            Debug.WriteLine("Data has been saved");
             return true;
         }
         // Load data from file
@@ -49,10 +50,10 @@ namespace StudyClasses
                     var f = (DataHolder)serializer.Deserialize(reader);
                     if (f != null && f is DataHolder) { dataHolder = f; }
                 }
-                Console.WriteLine("Data has been loaded");
+                Debug.WriteLine("Data has been loaded");
                 return true;
             }
-            Console.WriteLine("File not found");
+            Debug.WriteLine("File not found");
             return false;
         }
 
@@ -73,7 +74,7 @@ namespace StudyClasses
             dataHolder.AddStudent(new Student("Anna", "Wayhat", Gender.Female, "aw230909"));
             dataHolder.AddStudent(new Student("Peter", "Walker", Gender.Male, "pw200101"));
             dataHolder.AddStudent(new Student("Sasha", "Wool", Gender.Other, "sw210303"));
-
+            Debug.WriteLine($"Test data for {dataHolder.Students.Count} Students has been created");
             // Test data for Course
             var course1 = new Course();
             course1.Name = "Math";
@@ -101,35 +102,40 @@ namespace StudyClasses
             dataHolder.AddCourse(course5);
 
             // Test data for Assignement
-            var assign1 = new Assignement();
+            var assign1 = new Assignment();
+            assign1.Name = "First Math homework";
             assign1.Description = "First Math homework";
             assign1.Deadline = new DateTime(2024, 10, 15, 23, 59, 59);
             assign1.Course = course1;
-            dataHolder.AddAssignement(assign1);
+            dataHolder.AddAssignment(assign1);
 
-            var assign2 = new Assignement();
+            var assign2 = new Assignment();
+            assign2.Name = "First Physics homework";
             assign2.Description = "First Physics homework";
             assign2.Deadline = new DateTime(2024, 10, 16, 23, 59, 59);
             assign2.Course = course2;
-            dataHolder.AddAssignement(assign2);
+            dataHolder.AddAssignment(assign2);
 
-            var assign3 = new Assignement();
+            var assign3 = new Assignment();
+            assign1.Name = "First Chemistry homework";
             assign3.Description = "First Chemistry homework";
             assign3.Deadline = new DateTime(2024, 10, 17, 23, 59, 59);
             assign3.Course = course3;
-            dataHolder.AddAssignement(assign3);
+            dataHolder.AddAssignment(assign3);
 
-            var assign4 = new Assignement();
+            var assign4 = new Assignment();
+            assign4.Name = "First Biology homework";
             assign4.Description = "First Biology homework";
             assign4.Deadline = new DateTime(2024, 10, 18, 23, 59, 59);
             assign4.Course = course4;
-            dataHolder.AddAssignement(assign4);
+            dataHolder.AddAssignment(assign4);
 
-            var assign5 = new Assignement();
+            var assign5 = new Assignment();
+            assign5.Name = "First History homework";
             assign5.Description = "First History homework";
             assign5.Deadline = new DateTime(2024, 10, 19, 23, 59, 59);
             assign5.Course = course5;
-            dataHolder.AddAssignement(assign5);
+            dataHolder.AddAssignment(assign5);
 
             // Test data for Submission
             var sub1 = new Submission();
@@ -172,9 +178,9 @@ namespace StudyClasses
             dataHolder.Teachers.Clear();
             dataHolder.Students.Clear();
             dataHolder.Courses.Clear();
-            dataHolder.Assignements.Clear();
+            dataHolder.Assignments.Clear();
             dataHolder.Submissions.Clear();
-            Console.WriteLine("Data has been reset");
+            Debug.WriteLine("Data has been reset");
             return true;
         }
     }

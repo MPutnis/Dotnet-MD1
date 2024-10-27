@@ -4,9 +4,32 @@
              x:Class="MD2.AssignmentPage"
              Title="AssignmentPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
+        <Label
+            x:Name="lblPageName"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <!-- TODO: Make form for assignemnt data -->
+            <!-- assignment data: Description, Course, Deadline-->
+        <HorizontalStackLayout >
+            <Label Text="Assignment name:" />
+            <Entry x:Name="txtAssignmentName" Placeholder="Assignment name" />
+        </HorizontalStackLayout>
+        <Label Text="Assignment description:" />
+        <Editor x:Name="txtAssignmentDescription" Placeholder="Write a description of the assignment" />
+        <HorizontalStackLayout >
+            <Label Text="Course:" />
+            <Picker x:Name="pCourse" Title="Course" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout >
+            <Label Text="Deadline:" />
+            <DatePicker x:Name="dpDeadline" />
+            <TimePicker x:Name="tpDeadline" />
+        </HorizontalStackLayout>
+        <!-- TODO: Button to create new assignemnt -->
+        <Button x:Name="btnSaveNewAssignment"  Text="Save Assignment" Clicked="btnSaveNewAssignment_Clicked" />
+        <!-- TODO: Button to edit existing assignemnt, 
+            invisible, unless coming from edit assignment button -->
+        <Button x:Name="btnEditAssignment"  Text="Edit Assignment" 
+                IsVisible="False" Clicked="btnEditAssignment_Clicked" />
     </VerticalStackLayout>
 </ContentPage>

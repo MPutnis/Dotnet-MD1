@@ -1,3 +1,4 @@
+using StudyClasses;
 namespace MD2;
 
 public partial class SubmissionPage : ContentPage
@@ -6,4 +7,9 @@ public partial class SubmissionPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    public SubmissionPage(Submission submission)
+    {
+        InitializeComponent();
+    }
 }

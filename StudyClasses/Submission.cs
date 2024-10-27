@@ -11,12 +11,12 @@ namespace StudyClasses
     public class Submission
     {
         //īpašību "Assignement", datu tips Assignement.
-        private Assignement _assignement;
+        private Assignment _assignment;
 
-        public Assignement Assignement
+        public Assignment Assignement
         {
-            get { return _assignement; }
-            set { _assignement = value; }
+            get { return _assignment; }
+            set { _assignment = value; }
         }
 
         //īpašību "Student", datu tips Student.

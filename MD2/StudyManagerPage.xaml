@@ -4,17 +4,23 @@
              x:Class="MD2.StudyManagerPage"
              Title="StudyManagerPage"
              NavigatedTo="ContentPage_NavigatedTo">
-    <VerticalStackLayout>
-        <!--TODO: Buttons for StudyXMLDataManager methods -->
-        <Button x:Name="btnPrint" Text="Print" Clicked="btnPrint_Clicked" />
-        <Button x:Name="btnLoad" Text="Load" Clicked="btnLoad_Clicked" />
-        <Button x:Name="btnSave" Text="Save" Clicked="btnSave_Clicked" />
-        <Button x:Name="btnCreateTestData" Text="Create test data" Clicked="btnCreateTestData_Clicked" />
-        <Button x:Name="btnReset" Text="Reset" Clicked="btnReset_Clicked" />
-        <Label 
-            Text=""
-            x:Name="lblText"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <VerticalStackLayout>
+            <!--TODO: Buttons for StudyXMLDataManager methods -->
+            <Button x:Name="btnPrint" Text="Print" Clicked="btnPrint_Clicked" />
+            <Button x:Name="btnLoad" Text="Load" Clicked="btnLoad_Clicked" />
+            <Button x:Name="btnSave" Text="Save" Clicked="btnSave_Clicked" />
+            <Button x:Name="btnCreateTestData" Text="Create test data" Clicked="btnCreateTestData_Clicked" />
+            <Button x:Name="btnReset" Text="Reset" Clicked="btnReset_Clicked" />
+            <!-- Asked Copilot how to make Editor scrollable and take up the free screen space -->
+            <Editor 
+                Text=""
+                x:Name="ediText"
+                VerticalOptions="FillAndExpand" 
+                HorizontalOptions="FillAndExpand"
+                IsReadOnly="True"
+                AutoSize="TextChanges"
+            />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

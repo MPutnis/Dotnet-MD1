@@ -7,9 +7,17 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace StudyClasses
 {
-    //5. Izveidot klasi "Assignement" ar:   
-    public class Assignement
+    //5. Izveidot klasi "Assignment" ar:   
+    public class Assignment
     {
+        private string _name;
+
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+
         //īpašību "Deadline", datu tips Date.
         private DateTime _deadline;
 
@@ -40,7 +48,7 @@ namespace StudyClasses
         //pārdefinēt metodi ToString(), lai tā atgriež visu(arī mantoto) īpašību vērtības kā tekstu.
         public override string? ToString()
         {
-            return "Assignement: " + Description.ToString() + " Deadline: " + Deadline.ToString() + "\n" + Course.ToString();
+            return $"Assignment: {Name}\n" + Description.ToString() + "\nDeadline: " + Deadline.ToString() + "\n" + Course.ToString();
         }
     }
 }

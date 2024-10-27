@@ -7,7 +7,7 @@
     Shell.FlyoutBehavior="Flyout"
     Title="MD2">
 
-    <!-- TODO: Shell for StudyManager -->
+    <!-- TODO: Shell for StudyManagerPage -->
     <ShellContent
         Title="StudyManager"
         ContentTemplate="{DataTemplate local:StudyManagerPage}"

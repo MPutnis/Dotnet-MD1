@@ -4,6 +4,9 @@
              x:Class="MD2.SubmissionPage"
              Title="SubmissionPage">
     <VerticalStackLayout>
+        <!-- TODO: Make form for submission data -->
+        <!-- TODO: Button to create new submission -->
+        <!-- TODO: Button to edit existing submission -->
         <Label 
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
