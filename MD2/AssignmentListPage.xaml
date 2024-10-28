@@ -4,40 +4,41 @@
              x:Class="MD2.AssignmentListPage"
              Title="AssignmentListPage"
              NavigatedTo="ContentPage_NavigatedTo">
-    <VerticalStackLayout>
+    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <VerticalStackLayout>
        
-        <!-- TODO: Display existing assignements with buttons to edit or delete them-->
-        
-        <Label 
-            Text="Assignments"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <!-- TODO: Button to navigate to create new assignment page-->
-        <Button x:Name="btnCreateNewAssignment" Text="Create New Assignment" Clicked="CreateNewAssignment_Clicked"/>
-        <!-- TODO: Display existing assignements with buttons to edit or delete them-->
-        <CollectionView ItemsSource="{Binding AssignmentsList}" 
+            <!-- TODO: Display existing assignements with buttons to edit or delete them-->
+            <Label 
+                Text="Assignments"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <!-- TODO: Button to navigate to create new assignment page-->
+            <Button x:Name="btnCreateNewAssignment" Text="Create New Assignment" Clicked="CreateNewAssignment_Clicked"/>
+            <!-- TODO: Display existing assignements with buttons to edit or delete them-->        
+            <CollectionView ItemsSource="{Binding AssignmentsList}" 
                       VerticalOptions="FillAndExpand">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Orientation="Horizontal" Padding="10">
-                        
-                        <Label Text="{Binding}" VerticalOptions="Center" 
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+
+                            <Label Text="{Binding}" VerticalOptions="Center" 
                                HorizontalOptions="StartAndExpand" />
 
-                        <Button Text="Edit" x:Name="btnEditAssignement"
+                            <Button Text="Edit" x:Name="btnEditAssignement"
                                 BindingContext="{Binding}" 
                                 Clicked="btnEditAssignment_Clicked"
                                 VerticalOptions="Center"
                                 HorizontalOptions="End" />
-                        
-                        <Button Text="Delete" x:Name="btnDeleteAssignemet"
+
+                            <Button Text="Delete" x:Name="btnDeleteAssignemet"
                                 BindingContext="{Binding}"
                                 Clicked="btnDeleteAssignment_Clicked"
                                 VerticalOptions="Center"
                                 HorizontalOptions="End" />
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>        
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

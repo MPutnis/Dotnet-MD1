@@ -117,7 +117,7 @@ namespace StudyClasses
             dataHolder.AddAssignment(assign2);
 
             var assign3 = new Assignment();
-            assign1.Name = "First Chemistry homework";
+            assign3.Name = "First Chemistry homework";
             assign3.Description = "First Chemistry homework";
             assign3.Deadline = new DateTime(2024, 10, 17, 23, 59, 59);
             assign3.Course = course3;

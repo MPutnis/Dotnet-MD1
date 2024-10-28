@@ -3,26 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MD2.StudentPage"
              Title="StudentPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Create a new student."
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <!-- TODO: Make a form for Student properties: Name, Surname, Gender, StudentIdNumber-->
-        <HorizontalStackLayout >
-            <Label Text="First name:" />
-            <Entry x:Name="txtFirstName" Unfocused="txtFirstName_Unfocused" Placeholder="John" />
-        </HorizontalStackLayout>
-        <HorizontalStackLayout >
-            <Label Text="Surname:" />
-            <Entry x:Name="txtSurname" Unfocused="txtSurname_Unfocused" Placeholder="Doe" />
-        </HorizontalStackLayout>
+    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <VerticalStackLayout>
+            <Label 
+                    Text="Create a new student."
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
+            <Label 
+                    Text="Please fill in the following fields."
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Start" />
+            <!-- TODO: Make a form for Student properties: Name, Surname, Gender, StudentIdNumber-->
+            <HorizontalStackLayout >
+                <Label Text="First name:" />
+                <Entry x:Name="txtFirstName" Unfocused="txtFirstName_Unfocused" Placeholder="John" />
+            </HorizontalStackLayout>
+            <Label Text=""  x:Name="errorFN" IsVisible="False" TextColor="Red" />
+            <HorizontalStackLayout >
+                <Label Text="Surname:" />
+                <Entry x:Name="txtSurname" Unfocused="txtSurname_Unfocused" Placeholder="Doe" />
+            </HorizontalStackLayout>
+            <Label Text=""  x:Name="errorSN" IsVisible="False" TextColor="Red"/>
             <Label Text="Gender" />
             <Picker x:Name="pGender" Title="Gender" />
-        <HorizontalStackLayout >
-            <Label Text="Id Number:" />
-            <Entry x:Name="txtIdNumber" Unfocused="txtIdNumber_Unfocused" Placeholder="jd12345" />
-        </HorizontalStackLayout>
-        <Button x:Name="btnSaveNewStudent"  Text="Save Student" Clicked="btnSaveNewStudent_Clicked" />
-    </VerticalStackLayout>
+            <Label Text=""  x:Name="errorGN" IsVisible="False" TextColor="Red"/>
+            <HorizontalStackLayout >
+                <Label Text="Id Number:" />
+                <Entry x:Name="txtIdNumber" Unfocused="txtIdNumber_Unfocused" Placeholder="jd12345" />
+            </HorizontalStackLayout>
+            <Label Text=""  x:Name="errorIDN" IsVisible="False" TextColor="Red"/>
+            <Button x:Name="btnSaveNewStudent"  Text="Save Student" Clicked="btnSaveNewStudent_Clicked" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

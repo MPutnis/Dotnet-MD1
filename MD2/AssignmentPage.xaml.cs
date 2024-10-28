@@ -22,6 +22,7 @@ public partial class AssignmentPage : ContentPage
     {
         InitializeComponent();
         InitializePage();
+        // gather data from assignment and populate form
         _assignment = assignment;
         lblPageName.Text = "Edit assignment.";
         pCourse.SelectedItem = _assignment.Course;
@@ -49,21 +50,42 @@ public partial class AssignmentPage : ContentPage
     {
         try 
         {
-            // collect data from form and create new assignment
-            string name = txtAssignmentName.Text;
-            string description = txtAssignmentDescription.Text;
-            Course selectedCourse = (Course)pCourse.SelectedItem;
-            DateTime deadline = dpDeadline.Date + tpDeadline.Time;
-            Assignment newAssignment = new Assignment();
-            newAssignment.Name = name;
-            newAssignment.Description = description;
-            newAssignment.Course = selectedCourse;
-            newAssignment.Deadline = deadline;
-            dataManager.dataHolder.AddAssignment(newAssignment);
+            // check if fields are filled
+            if (txtAssignmentName.Text == null || txtAssignmentName.Text == "")
+            {
+                throw new Exception("Assignment name must be filled");
+            }
+            else if (txtAssignmentDescription.Text == null || txtAssignmentDescription.Text == "")
+            {
+                throw new Exception("Assignment description must be filled");
+            }
+            else if (pCourse.SelectedItem == null)
+            {
+                throw new Exception("Course must be selected");
+            }
+            else if ((dpDeadline.Date + tpDeadline.Time) <= DateTime.Now)
+            {
+                throw new Exception("Deadline must be in the future");
+            }
+            else
+            {
+                // collect data from form and create new assignment
+                string name = txtAssignmentName.Text;
+                string description = txtAssignmentDescription.Text;
+                Course selectedCourse = (Course)pCourse.SelectedItem;
+                DateTime deadline = dpDeadline.Date + tpDeadline.Time;
+                Assignment newAssignment = new Assignment();
+                newAssignment.Name = name;
+                newAssignment.Description = description;
+                newAssignment.Course = selectedCourse;
+                newAssignment.Deadline = deadline;
+                dataManager.dataHolder.AddAssignment(newAssignment);
+                DisplayAlert("Success", $"New assignment \"{newAssignment.Name.ToString()}\" added", "OK");
+            }
         }
-        catch
+        catch (Exception ex) 
         {
-
+            DisplayAlert("Error", ex.Message, "OK");
         }
     }
 
@@ -71,13 +93,34 @@ public partial class AssignmentPage : ContentPage
     {
         try
         {
-            _assignment.Description = txtAssignmentDescription.Text;
-            _assignment.Course = (Course)pCourse.SelectedItem;
-            _assignment.Deadline = dpDeadline.Date + tpDeadline.Time;
+            if (txtAssignmentName.Text == null || txtAssignmentName.Text == "")
+            {
+                throw new Exception("Assignment name must be filled");
+            }
+            else if (txtAssignmentDescription.Text == null || txtAssignmentDescription.Text == "")
+            {
+                throw new Exception("Assignment description must be filled");
+            }
+            else if (pCourse.SelectedItem == null)
+            {
+                throw new Exception("Course must be selected");
+            }
+            else if ((dpDeadline.Date + tpDeadline.Time) <= DateTime.Now)
+            {
+                throw new Exception("Deadline must be in the future");
+            }
+            else
+            {
+                _assignment.Name = txtAssignmentName.Text;
+                _assignment.Description = txtAssignmentDescription.Text;
+                _assignment.Course = (Course)pCourse.SelectedItem;
+                _assignment.Deadline = dpDeadline.Date + tpDeadline.Time;
+                DisplayAlert("Success", $"Assignment \"{_assignment.Name.ToString()}\" updated", "OK");
+            }
         }
-        catch
+        catch (Exception ex)
         {
-        
+            DisplayAlert("Error", ex.Message, "OK");
         }
     }
 }

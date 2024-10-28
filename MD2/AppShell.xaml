@@ -42,10 +42,4 @@
         Title="New Submission"
         ContentTemplate="{DataTemplate local:SubmissionPage}"
         Route="SubmissionPage" />
-
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
 </Shell>

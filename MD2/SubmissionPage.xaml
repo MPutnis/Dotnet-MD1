@@ -8,6 +8,10 @@
             x:Name="lblPageName"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Label 
+            Text="Please fill all the form fields."
+            VerticalOptions="Center"
+            HorizontalOptions="Start" />
         <!-- TODO: Make form for submission data -->
             <!-- submission data: Assignment, Student, SubmissionTime( should be automatic), Score-->
         <HorizontalStackLayout >
@@ -20,8 +24,9 @@
         </HorizontalStackLayout>
         <HorizontalStackLayout >
             <Label Text="Score:" />
-            <Entry x:Name="txtScore" Placeholder="Score" />
+            <Entry x:Name="txtScore" Placeholder="Score" Unfocused="txtScore_Unfocused" />
         </HorizontalStackLayout>
+        <Label x:Name="errorSC" Text="" TextColor="Red" IsVisible="False" />
         <!-- TODO: Button to create new submission -->
         <Button x:Name="btnSaveNewSubmission"  Text="Save Submission" Clicked="btnSaveNewSubmission_Clicked" />
         <!-- TODO: Button to edit existing submission -->

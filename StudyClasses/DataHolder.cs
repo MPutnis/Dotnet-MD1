@@ -65,7 +65,7 @@ namespace StudyClasses
             string result = "";
             foreach (var listItem in list)
             {
-                result += listItem.ToString() + Environment.NewLine;
+                result += listItem.ToString() + Environment.NewLine + Environment.NewLine;
             }
             return result;
         }

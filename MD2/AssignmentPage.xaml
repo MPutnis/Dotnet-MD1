@@ -8,14 +8,20 @@
             x:Name="lblPageName"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Label
+            Text="Please fill all the form fields."
+            VerticalOptions="Center"
+            HorizontalOptions="Start" />
         <!-- TODO: Make form for assignemnt data -->
             <!-- assignment data: Description, Course, Deadline-->
         <HorizontalStackLayout >
             <Label Text="Assignment name:" />
             <Entry x:Name="txtAssignmentName" Placeholder="Assignment name" />
         </HorizontalStackLayout>
+        <Label x:Name="errorAN" Text="" TextColor="Red" IsVisible="False" />
         <Label Text="Assignment description:" />
         <Editor x:Name="txtAssignmentDescription" Placeholder="Write a description of the assignment" />
+        <Label x:Name="errorAD" Text="" TextColor="Red" IsVisible="False" />
         <HorizontalStackLayout >
             <Label Text="Course:" />
             <Picker x:Name="pCourse" Title="Course" />
@@ -25,6 +31,7 @@
             <DatePicker x:Name="dpDeadline" />
             <TimePicker x:Name="tpDeadline" />
         </HorizontalStackLayout>
+        <Label x:Name="errorDL" Text="" TextColor="Red" IsVisible="False" />
         <!-- TODO: Button to create new assignemnt -->
         <Button x:Name="btnSaveNewAssignment"  Text="Save Assignment" Clicked="btnSaveNewAssignment_Clicked" />
         <!-- TODO: Button to edit existing assignemnt, 

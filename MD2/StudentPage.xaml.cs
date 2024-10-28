@@ -6,6 +6,9 @@ namespace MD2;
 public partial class StudentPage : ContentPage
 {
     public StudyXMLDataManager dataManager;
+    private bool isValidFN = false;
+    private bool isValidIDN = false;
+    private bool isValidSN = false;
     // DONE: Gender binding
     public StudentPage()
 	{
@@ -20,15 +23,16 @@ public partial class StudentPage : ContentPage
     {
         try
         {
-            if (txtFirstName.Text == null || txtFirstName.Text == "")
+            // check if fields are filled and valid
+            if (txtFirstName.Text == null || txtFirstName.Text == "" || !isValidFN)
             {
                 throw new Exception("First name must be filled");
             }
-            else if (txtIdNumber.Text == null || txtIdNumber.Text == "")
+            else if (txtIdNumber.Text == null || txtIdNumber.Text == "" || !isValidIDN)
             {
                 throw new Exception("ID number must be filled");
             }
-            else if (txtSurname.Text == null || txtSurname.Text == "")
+            else if (txtSurname.Text == null || txtSurname.Text == "" || !isValidSN)
             {
                 throw new Exception("Surname must be filled");
             }
@@ -36,6 +40,7 @@ public partial class StudentPage : ContentPage
             {
                 throw new Exception("Gender must be selected");
             }
+            // if everything is filled and valid, create new student
             else
             {
                 string firstName = txtFirstName.Text;
@@ -44,14 +49,16 @@ public partial class StudentPage : ContentPage
                 Gender selectedGender = (Gender)pGender.SelectedItem;
                 Student newStudent = new Student(firstName, surname, selectedGender, idNumber);
                 dataManager.dataHolder.AddStudent(newStudent);
+                DisplayAlert("Success", $"New student \"{newStudent.ToString()}\" added", "OK");
             }
         }
-        catch
+        // Copilot explained how throw- catch works
+        catch (Exception ex)
         {
-
+            DisplayAlert("Error", ex.Message, "OK");
         }
     }
-    // TODO: First name validation
+    // DONE: First name validation
     private void txtFirstName_Unfocused(object sender, FocusEventArgs e)
     {
         var entry = sender as Entry;
@@ -69,17 +76,20 @@ public partial class StudentPage : ContentPage
                 }
                 else 
                 {
-                    string firstName = entry.Text;
-                    Debug.WriteLine($"First name entry lost focus. Value: {firstName}");
+                    Debug.WriteLine($"First name entry lost focus. Value: {entry.Text}");
+                    errorFN.IsVisible = false;
+                    isValidFN = true;
                 }
             }        
         }
-        catch
+        catch (Exception ex)
         {
-
+            errorFN.Text = ex.Message;
+            errorFN.IsVisible = true;
+            isValidFN = false;
         }
     }
-    // TODO: ID number validation
+    // DONE: ID number validation
     private void txtIdNumber_Unfocused(object sender, FocusEventArgs e)
     {
         var entry = sender as Entry;
@@ -93,14 +103,17 @@ public partial class StudentPage : ContentPage
                 }
                 else
                 {
-                    string idNumber = entry.Text;
-                    Debug.WriteLine($"ID number entry lost focus. Value: {idNumber}");
+                    Debug.WriteLine($"ID number entry lost focus. Value: {entry.Text}");
+                    errorIDN.IsVisible = false;
+                    isValidIDN = true;
                 }
             }
         }
-        catch
+        catch (Exception ex)
         {
-
+            errorIDN.Text = ex.Message;
+            errorIDN.IsVisible = true;
+            isValidIDN = false;
         }
     }
     // TODO: Surname validation
@@ -122,14 +135,17 @@ public partial class StudentPage : ContentPage
                 }
                 else
                 {
-                    string surname = entry.Text;
-                    Debug.WriteLine($"Surname entry lost focus. Value: {surname}");
+                    Debug.WriteLine($"Surname entry lost focus. Value: {entry.Text}");
+                    errorSN.IsVisible = false;
+                    isValidSN = true;
                 }
             }
         }
-        catch
+        catch (Exception ex)
         {
-
+            errorSN.Text = ex.Message;
+            errorSN.IsVisible = true;
+            isValidSN = false;
         }
     }
 }
