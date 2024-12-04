@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace StudyClasses
 {
     //4. Izveidot klasi "Course" ar:
     public class Course
     {
+        [Key]
+        public int Id { get; set; }
         //Īpašību "Name", kas ir teksts.
         private string _name;
 

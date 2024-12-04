@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.ComponentModel.DataAnnotations;
 
 namespace StudyClasses
 {
     //5. Izveidot klasi "Assignment" ar:   
     public class Assignment
     {
+        [Key]
+        public int Id { get; set; }
         private string _name;
 
         public string Name

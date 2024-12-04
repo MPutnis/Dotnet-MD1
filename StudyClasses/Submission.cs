@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,8 @@ namespace StudyClasses
     //6. Izveidot klasi "Submission" ar:
     public class Submission
     {
+        [Key]
+        public int Id { get; set; }
         //īpašību "Assignement", datu tips Assignement.
         private Assignment _assignment;
 

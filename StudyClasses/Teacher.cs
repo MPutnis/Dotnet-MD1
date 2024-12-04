@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 
 
@@ -13,6 +14,8 @@ namespace StudyClasses
 {
     public class Teacher : Person
     {
+        [Key]
+        public int Id { get; set; }
         //    Īpašība "ContractDate", kas ir datums.
         private DateOnly _contractDate;
 

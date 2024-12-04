@@ -4,12 +4,15 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace StudyClasses
 {
     // 3. Izveidot klasei „Person” apakšklasi „Student” ar:
     public class Student : Person
     {
+        [Key]
+        public int StudentId { get; set; }
         // Īpašība „StudentIdNumder”.
         private string _studentIdNumber;
 
