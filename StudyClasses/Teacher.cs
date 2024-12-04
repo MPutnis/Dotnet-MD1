@@ -18,6 +18,7 @@ namespace StudyClasses
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         //    Īpašība "ContractDate", kas ir datums.
         private DateOnly _contractDate;
 

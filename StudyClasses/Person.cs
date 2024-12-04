@@ -70,11 +70,11 @@ namespace StudyClasses
         {
             get { return $"{_name} {_surname}"; }
         }
-        private Gender _personGender;
+        
         public Gender PersonGender
         {
-            get { return _personGender; }
-            set { _personGender = value; }
+            get;
+            set;
         }
 
         public override string? ToString()
